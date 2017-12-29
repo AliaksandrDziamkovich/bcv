@@ -10,15 +10,18 @@ namespace Converter
     {
         static void Main(string[] args)
         {
-            int number = int.Parse(Console.ReadLine());
+           try
+           {
+                int number = int.Parse(Console.ReadLine());
+                Converter converter = new Converter();
+                string converter2 = converter.ConverterTo2(number);
+                Console.WriteLine(converter2);
+            }
+           catch(FormatException)
+            {
+                Console.WriteLine("введен неверный формат");
+            }
 
-            Converter converter = new Converter();
-
-            List<int> converterTo2 = converter.ConverterTo2(number);
-            List<int> reverse = converter.ReverseNumber(converterTo2);
-            string numberToString = converter.NumberToString(reverse);
-
-            Console.WriteLine(numberToString);
             Console.ReadKey();
         }
     }
